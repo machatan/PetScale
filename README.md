@@ -1,5 +1,4 @@
 # PetScale
-===
 Arduino を利用したペット体重計  
 
 ## Overview
@@ -8,10 +7,10 @@ RFIDチップで個体管理しnifty MobileBackendにデータを書き込む仕
 RFIDチップを読ませてからHX711モジュールで計測し、計測結果を７Segduinoへリアルタイムで送信し体重を表示します。  
 計測確定後ESP8266からniftyMobileBackendへ送信します。※要アカウント  
 
-## 利用するもの
+## 利用するもの  
 測定＋RFID読取）  
-Arduino Pro Mini　（5Vのものを使用）
-https://www.switch-science.com/catalog/946/
+Arduino Pro Mini（5Vのものを使用）  
+https://www.switch-science.com/catalog/946/  
 Groveシリーズ用RFIDリーダー(Grove用4ピンコネクタ搭載)　単価 ¥1890  
 http://www.sengoku.co.jp/mod/sgk_cart/detail.php?code=EEHD-0GKE  
 Seeed Studio　125KHz RFIDタグ 5個入り 単価 ¥370  
