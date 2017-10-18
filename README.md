@@ -37,9 +37,10 @@ https://www.switch-science.com/catalog/745/ 
 ### 測定結果送信  
 
 ESPr® Developer（ESP-WROOM-02開発ボード）  
-https://www.switch-science.com/catalog/2500/  
+https://www.switch-science.com/catalog/2500/    
+__シリアル通信のみなのでWio Nodeなどでもよいです__   
 
-ロジック変換ボード    
+ロジック変換ボード   
 https://www.switch-science.com/catalog/1523/  
 
 低損失レギュレータ    
