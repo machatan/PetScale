@@ -1,12 +1,10 @@
 /*
- PetScale V0.7
   RFID SheldとESP8266、7Segduinoを組み合わせたペット用体重計
   RFIDチップで個体管理しnifty MobileBackendにデータを書き込む。
   RFIDチップを読ませてからHX711モジュールで計測し、計測結果を７Segduinoへリアルタイムで送信。
   計測確定後ESP8266からniftyMobileBackendへ送信する。
 
-
- 次のバージョン以降での改定予定
+  次のバージョン以降での改定予定
   UXの改良
     モードごとに鳴動してユーザに知らせる。(完了）
     Wifiの状態を光と鳴動で知らせる。（完了）
@@ -28,20 +26,16 @@
 float gravityval;
 float dispgrav;
 
-
 //#define calibration_factor 220462 //Beam Type Load cellの場合
 //#define zero_factor 215244 //Beam Type Load cellの場合
 
-
 #define calibration_factor -47260 // SparkFun_HX711_Calibration sketch で算出
 #define zero_factor -412340 // SparkFun_HX711_Calibration sketchで算出した参考値
-
 
 #define DOUT  A1
 #define CLK  A0
 #define SOFTRX 6
 #define SOFTTX 7
-
 
 #define SOFT2RX 8
 #define SOFT2TX 9
@@ -53,11 +47,9 @@ float dispgrav;
 #define BEAT 50
 
 HX711 scale(DOUT, CLK);
-
 int timecount=0;
 int bval,nval=0;
 int CloudSended=0;
-
 
 int RunningMode=0;
 //---- RFID 
@@ -71,7 +63,6 @@ unsigned long CNumL=0L;
 int Ccount = 0;                   // counter for CardNumber Global Buffer
 int Reading = 0;
 
-
 void setup()
 {
     RFIDSoftSerial.begin(9600);     // RFID リーダー用
@@ -83,7 +74,6 @@ void setup()
     CNumL=0L;
     Cnumber[0] = buffer[0] = 0x0;
 
-
     pinMode(RSTSW, INPUT); // RESET BUTTON
     delay(500);
   
@@ -92,7 +82,7 @@ void setup()
     CloudSended = 0; // クラウドにデータ未送信
     ClickBeep(0);    // 初期化音
 }
-
+ 
 void loop()
 {
   if(RunningMode == 1){
@@ -140,16 +130,13 @@ void RFID_ReadLoop() // RFIDデータは非同期のためデータが揃うま�
       CNumL = strtoul(buffer,NULL,16);  // unsigned long で保存しておく
       ClickBeep(2); // このタイミングで音を鳴らしてRFID読み取り成功を知らせる
       Serial.print("cardNumber:");
-      Serial.println(CNumL); // １０進数に変換したものをデバッグ表示
-      clearBufferCArray(); // カードナンバーバッファのクリア
+      Serial.println(CNumL); // １０進数に変換したものを表示
+      clearBufferCArray(); // buffer clear
       Ccount=0;
       RunningMode = 0; // Calc Mode
       //-----------HX711 Setup　計測直前にセットアップしないとスリープしたのでここでセットアップ    
-      delay(400);
-      scale.set_scale(calibration_factor); // Calibration_factorはSparkFun_HX711_Calibration スケッチで算出しておく
-      delay(400);
-      scale.set_offset(scale.read_average()); // 自動風袋引き
-      delay(500);
+      scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
+      scale.set_offset(scale.read_average()); //Zero out the scale using a previously known zero_factor
       timecount = 0;
       Serial.println("ScaleSetup.");
       ClickBeep(1); // ここで音を鳴らして計測可能になったことを知らせる。
@@ -163,6 +150,9 @@ void HX711_Loop()
 {
   String espWriteBuf;
 
+  if(digitalRead(RSTSW) == HIGH){ // ここでリセットすると風袋引き
+      scale.set_offset(scale.read_average());
+  }
   if(timecount >= 2){ // 10SPSモードにしているので約2秒間静止出来たら計測終了
     if(digitalRead(RSTSW) == HIGH){ // リセットボタンを実装
       timecount=0;
@@ -198,7 +188,6 @@ void HX711_Loop()
   bval = nval;
   //delay(1);
 }
-
 
 void clearBufferArray()                 // function to clear buffer array
 {
@@ -246,3 +235,4 @@ void ClickBeep(int mode)  // モードごとに音を変える
       break;
   }
 }
+
