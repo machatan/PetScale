@@ -63,7 +63,8 @@ ESP8266モジュール用スケッチ：ESP8266ESP8266_HTTPSClient.ino　　　
 
 Arduino用スケッチ：petscale.ino　　　　
 
-接続図は後日    
+接続図　　
+!(https://github.com/machatan/PetScale/blob/master/petscaleImages/cabling.png)  　    
 
 電源は電池ボックスなどにつないでください。  
 ESP8266は上記接続前にWifi設定してください。  
