@@ -1,0 +1,6 @@
+# PetScale
+Arduino を利用したペット体重計
+ArduinoとGrove RFID SheldとESP8266、7Segduinoを組み合わせたペット用体重計です。
+RFIDチップで個体管理しnifty MobileBackendにデータを書き込む仕様です。
+RFIDチップを読ませてからHX711モジュールで計測し、計測結果を７Segduinoへリアルタイムで送信し体重を表示します。
+計測確定後ESP8266からniftyMobileBackendへ送信します。※要アカウント
