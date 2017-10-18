@@ -53,10 +53,13 @@ http://mb.cloud.nifty.com/ 
 
 ## 利用方法
 それぞれのスケッチをそれぞれのモジュールに転送したらArduino Pro MiniとRFID リーダー、7SegduinoとESP8266をそれぞれシリアル接続します。    
-ESP8266が3.3VのためLDOで3.3Vを作って渡してやる必要があります。   
-ESP8266モジュール用スケッチ：ESP8266ESP8266_HTTPSClient.ino　　
-７Segduino用スケッチ：_7seg_Weight.ino　　
-Arduino用スケッチ：petscale.ino　　
+ESP8266が3.3VのためLDOで3.3Vを作って渡してやる必要があります。　　　
+
+ESP8266モジュール用スケッチ：ESP8266ESP8266_HTTPSClient.ino　　　
+
+７Segduino用スケッチ：_7seg_Weight.ino　　　
+
+Arduino用スケッチ：petscale.ino　　　　
 
 接続図は後日    
 
