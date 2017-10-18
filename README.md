@@ -1,5 +1,7 @@
 # PetScale
-Arduino を利用したにゃんこ体重計  
+Arduino を利用したにゃんこ体重計   
+
+![全体像](https://github.com/machatan/PetScale/blob/master/petscaleImages/IMG_9095.JPG) 
 
 ## Overview
 ArduinoとGrove RFID SheldとESP8266、7Segduinoを組み合わせたにゃんこ用体重計です。  
