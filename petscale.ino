@@ -1,26 +1,26 @@
 /*
  PetScale V0.7
-  RFID Sheld‚ÆESP8266A7Segduino‚ğ‘g‚İ‡‚í‚¹‚½ƒyƒbƒg—p‘ÌdŒv
-  RFIDƒ`ƒbƒv‚ÅŒÂ‘ÌŠÇ—‚µnifty MobileBackend‚Éƒf[ƒ^‚ğ‘‚«‚ŞB
-  RFIDƒ`ƒbƒv‚ğ“Ç‚Ü‚¹‚Ä‚©‚çHX711ƒ‚ƒWƒ…[ƒ‹‚ÅŒv‘ª‚µAŒv‘ªŒ‹‰Ê‚ğ‚VSegduino‚ÖƒŠƒAƒ‹ƒ^ƒCƒ€‚Å‘—MB
-  Œv‘ªŠm’èŒãESP8266‚©‚çniftyMobileBackend‚Ö‘—M‚·‚éB
+  RFID Sheldã¨ESP8266ã€7Segduinoã‚’çµ„ã¿åˆã‚ã›ãŸãƒšãƒƒãƒˆç”¨ä½“é‡è¨ˆ
+  RFIDãƒãƒƒãƒ—ã§å€‹ä½“ç®¡ç†ã—nifty MobileBackendã«ãƒ‡ãƒ¼ã‚¿ã‚’æ›¸ãè¾¼ã‚€ã€‚
+  RFIDãƒãƒƒãƒ—ã‚’èª­ã¾ã›ã¦ã‹ã‚‰HX711ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã§è¨ˆæ¸¬ã—ã€è¨ˆæ¸¬çµæœã‚’ï¼—Segduinoã¸ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ã§é€ä¿¡ã€‚
+  è¨ˆæ¸¬ç¢ºå®šå¾ŒESP8266ã‹ã‚‰niftyMobileBackendã¸é€ä¿¡ã™ã‚‹ã€‚
 
 
- Ÿ‚Ìƒo[ƒWƒ‡ƒ“ˆÈ~‚Å‚Ì‰ü’è—\’è
-  UX‚Ì‰ü—Ç
-    ƒ‚[ƒh‚²‚Æ‚É–Â“®‚µ‚Äƒ†[ƒU‚É’m‚ç‚¹‚éB(Š®—¹j
-    Wifi‚Ìó‘Ô‚ğŒõ‚Æ–Â“®‚Å’m‚ç‚¹‚éBiŠ®—¹j
-  ƒgƒCƒŒƒ‚[ƒh
-    Œv‘ªŒã‚Ì·•ª‚ğ•Û‘¶‚·‚é
-    ¦ŒÂ‘ÌŠÇ—‚È‚µ
-  WifiManager‘Î‰iŠ®—¹j
-    wifiİ’è‚ğ•ÏX‰Â”\‚É‚·‚éiWifiManager‚Å‚Í‚È‚­SPIFFS‚ğg—p‚µ‚Ä“Æ©‚Éì¬j
-  “®ì‡˜‚ÌØ‚è‘Ö‚¦
-    Œv‘ªŒã‚ÉRFID‚ğ“Ç‚Ü‚¹‚éƒ‚[ƒh’Ç‰Á
-    ¦RFID‚Ì“Ç‚İæ‚è‚ª‚È‚¯‚ê‚ÎŒv‘ª‚Ì‚İ
-    ¦ƒXƒCƒbƒ`‚ÅØ‚è‘Ö‚¦
-    Œv‘ª—h‚ê‚ğ‹­§“I‚É•½‹Ï‚ğZo‚·‚é
-    ¦ƒXƒCƒbƒ`‚Å‰ß‹3‰ñ•ª‚Ì•½‹Ï’l‚ğ‘—M
+ æ¬¡ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ä»¥é™ã§ã®æ”¹å®šäºˆå®š
+  UXã®æ”¹è‰¯
+    ãƒ¢ãƒ¼ãƒ‰ã”ã¨ã«é³´å‹•ã—ã¦ãƒ¦ãƒ¼ã‚¶ã«çŸ¥ã‚‰ã›ã‚‹ã€‚(å®Œäº†ï¼‰
+    Wifiã®çŠ¶æ…‹ã‚’å…‰ã¨é³´å‹•ã§çŸ¥ã‚‰ã›ã‚‹ã€‚ï¼ˆå®Œäº†ï¼‰
+  ãƒˆã‚¤ãƒ¬ãƒ¢ãƒ¼ãƒ‰
+    è¨ˆæ¸¬å¾Œã®å·®åˆ†ã‚’ä¿å­˜ã™ã‚‹
+    â€»å€‹ä½“ç®¡ç†ãªã—
+  WifiManagerå¯¾å¿œï¼ˆå®Œäº†ï¼‰
+    wifiè¨­å®šã‚’å¤‰æ›´å¯èƒ½ã«ã™ã‚‹ï¼ˆWifiManagerã§ã¯ãªãSPIFFSã‚’ä½¿ç”¨ã—ã¦ç‹¬è‡ªã«ä½œæˆï¼‰
+  å‹•ä½œé †åºã®åˆ‡ã‚Šæ›¿ãˆ
+    è¨ˆæ¸¬å¾Œã«RFIDã‚’èª­ã¾ã›ã‚‹ãƒ¢ãƒ¼ãƒ‰è¿½åŠ 
+    â€»RFIDã®èª­ã¿å–ã‚ŠãŒãªã‘ã‚Œã°è¨ˆæ¸¬ã®ã¿
+    â€»ã‚¹ã‚¤ãƒƒãƒã§åˆ‡ã‚Šæ›¿ãˆ
+    è¨ˆæ¸¬æºã‚Œã‚’å¼·åˆ¶çš„ã«å¹³å‡ã‚’ç®—å‡ºã™ã‚‹
+    â€»ã‚¹ã‚¤ãƒƒãƒã§éå»3å›åˆ†ã®å¹³å‡å€¤ã‚’é€ä¿¡
 */ 
 #include "HX711.h"
 //---- RFID
@@ -29,12 +29,12 @@ float gravityval;
 float dispgrav;
 
 
-/#define calibration_factor 220462 //Beam Type Load cell‚Ìê‡
-//#define zero_factor 215244 //Beam Type Load cell‚Ìê‡
+//#define calibration_factor 220462 //Beam Type Load cellã®å ´åˆ
+//#define zero_factor 215244 //Beam Type Load cellã®å ´åˆ
 
 
-define calibration_factor -47260 // SparkFun_HX711_Calibration sketch ‚ÅZo
-#define zero_factor -412340 // SparkFun_HX711_Calibration sketch‚ÅZo‚µ‚½Ql’l
+#define calibration_factor -47260 // SparkFun_HX711_Calibration sketch ã§ç®—å‡º
+#define zero_factor -412340 // SparkFun_HX711_Calibration sketchã§ç®—å‡ºã—ãŸå‚è€ƒå€¤
 
 
 #define DOUT  A1
@@ -74,11 +74,11 @@ int Reading = 0;
 
 void setup()
 {
-    RFIDSoftSerial.begin(9600);     // RFID ƒŠ[ƒ_[—p
-    ESPSoftSer.begin(9600);         // ESP8266 ’ÊM—p
-    SevenSegSoftSer.begin(4800);    // ‚VSegduino’ÊM—p
-    Serial.begin(4800);             // debug—p
-    // ƒJ[ƒh”Ô†—p‰Šú‰»
+    RFIDSoftSerial.begin(9600);     // RFID ãƒªãƒ¼ãƒ€ãƒ¼ç”¨
+    ESPSoftSer.begin(9600);         // ESP8266 é€šä¿¡ç”¨
+    SevenSegSoftSer.begin(4800);    // ï¼—Segduinoé€šä¿¡ç”¨
+    Serial.begin(4800);             // debugç”¨
+    // ã‚«ãƒ¼ãƒ‰ç•ªå·ç”¨åˆæœŸåŒ–
     Serial.println("Setup!");
     CNumL=0L;
     Cnumber[0] = buffer[0] = 0x0;
@@ -87,18 +87,18 @@ void setup()
     pinMode(RSTSW, INPUT); // RESET BUTTON
     delay(500);
   
-    RunningMode = 1; // RFID ReadMode ‚Å‹N“®
+    RunningMode = 1; // RFID ReadMode ã§èµ·å‹•
     //RunningMode = 2; // test debug
-    CloudSended = 0; // ƒNƒ‰ƒEƒh‚Éƒf[ƒ^–¢‘—M
-    ClickBeep(0);    // ‰Šú‰»‰¹
+    CloudSended = 0; // ã‚¯ãƒ©ã‚¦ãƒ‰ã«ãƒ‡ãƒ¼ã‚¿æœªé€ä¿¡
+    ClickBeep(0);    // åˆæœŸåŒ–éŸ³
 }
 
 void loop()
 {
   if(RunningMode == 1){
-    RFID_ReadLoop();    // RFID“Ç‚İæ‚èƒ‚[ƒh
+    RFID_ReadLoop();    // RFIDèª­ã¿å–ã‚Šãƒ¢ãƒ¼ãƒ‰
   }else if(RunningMode == 0){
-    HX711_Loop();       // d—ÊŒv‘ªƒ‚[ƒh
+    HX711_Loop();       // é‡é‡è¨ˆæ¸¬ãƒ¢ãƒ¼ãƒ‰
   }else{
     if(digitalRead(RSTSW) == HIGH){                // Sound test Mode
       tone(TONESW,840,BEAT);
@@ -109,15 +109,15 @@ void loop()
   }
 }
 
-void RFID_ReadLoop() // RFIDƒf[ƒ^‚Í”ñ“¯Šú‚Ì‚½‚ßƒf[ƒ^‚ª‘µ‚¤‚Ü‚Åƒ‹[ƒv
+void RFID_ReadLoop() // RFIDãƒ‡ãƒ¼ã‚¿ã¯éåŒæœŸã®ãŸã‚ãƒ‡ãƒ¼ã‚¿ãŒæƒã†ã¾ã§ãƒ«ãƒ¼ãƒ—
 {
-  RFIDSoftSerial.listen(); RFID—pSoftSerial‚Ì€”õ
-  //--------------RFID Reader ‚©‚çƒf[ƒ^‚ª—ˆ‚½
+  RFIDSoftSerial.listen(); RFIDç”¨SoftSerialã®æº–å‚™
+  //--------------RFID Reader ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ãŒæ¥ãŸ
   if (RFIDSoftSerial.available())              
   {
-      while(RFIDSoftSerial.available())                 // ƒVƒŠƒAƒ‹ƒoƒbƒtƒ@‚ª‚ ‚éŠÔƒ‹[ƒv
+      while(RFIDSoftSerial.available())                 // ã‚·ãƒªã‚¢ãƒ«ãƒãƒƒãƒ•ã‚¡ãŒã‚ã‚‹é–“ãƒ«ãƒ¼ãƒ—
       {
-          buffer[count++] = RFIDSoftSerial.read();      // ‚P•¶š‚¸‚Âƒoƒbƒtƒ@
+          buffer[count++] = RFIDSoftSerial.read();      // ï¼‘æ–‡å­—ãšã¤ãƒãƒƒãƒ•ã‚¡
           if(count == BUF_SIZE)break;
       }
       for(int i=0;i < count; i++){
@@ -125,34 +125,34 @@ void RFID_ReadLoop() // RFIDƒf[ƒ^‚Í”ñ“¯Šú‚Ì‚½‚ßƒf[ƒ^‚ª‘µ‚¤‚Ü‚Åƒ‹[ƒv
           Cnumber[Ccount++] = buffer[i];                // 0-9 A-F
         }
       }
-      clearBufferArray();             // óæƒoƒbƒtƒ@‚ÌƒNƒŠƒA
+      clearBufferArray();             // å—å–ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢
       count = 0;
   }else{
-    if(Ccount > 11){                  // 11•¶š‚ğãŒÀ‚Æ‚µ‚Ä”Ô†‚ğ®Œ`
+    if(Ccount > 11){                  // 11æ–‡å­—ã‚’ä¸Šé™ã¨ã—ã¦ç•ªå·ã‚’æ•´å½¢
       Cnumber[Ccount] = 0x0;
       int cnt=0;
       buffer[cnt++] = '0'; // convert buffer(hex) to unsigned long 
-      buffer[cnt++] = 'x'; // RFID‚Íhex‚Å“Ç‚İæ‚ç‚ê‚é‚½‚ßunsignedLong‚É•ÏŠ·‚·‚é‚Æƒ^ƒO‚É‹LÚ‚Ì”Ô†‚Æ‚È‚é
+      buffer[cnt++] = 'x'; // RFIDã¯hexã§èª­ã¿å–ã‚‰ã‚Œã‚‹ãŸã‚unsignedLongã«å¤‰æ›ã™ã‚‹ã¨ã‚¿ã‚°ã«è¨˜è¼‰ã®ç•ªå·ã¨ãªã‚‹
       for(int i=2; i<10; i++){
         buffer[cnt++] = Cnumber[i];
       }
       buffer[cnt] = 0x0;
-      CNumL = strtoul(buffer,NULL,16);  // unsigned long ‚Å•Û‘¶‚µ‚Ä‚¨‚­
-      ClickBeep(2); // ‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å‰¹‚ğ–Â‚ç‚µ‚ÄRFID“Ç‚İæ‚è¬Œ÷‚ğ’m‚ç‚¹‚é
+      CNumL = strtoul(buffer,NULL,16);  // unsigned long ã§ä¿å­˜ã—ã¦ãŠã
+      ClickBeep(2); // ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§éŸ³ã‚’é³´ã‚‰ã—ã¦RFIDèª­ã¿å–ã‚ŠæˆåŠŸã‚’çŸ¥ã‚‰ã›ã‚‹
       Serial.print("cardNumber:");
-      Serial.println(CNumL); // ‚P‚Oi”‚É•ÏŠ·‚µ‚½‚à‚Ì‚ğƒfƒoƒbƒO•\¦
-      clearBufferCArray(); // ƒJ[ƒhƒiƒ“ƒo[ƒoƒbƒtƒ@‚ÌƒNƒŠƒA
+      Serial.println(CNumL); // ï¼‘ï¼é€²æ•°ã«å¤‰æ›ã—ãŸã‚‚ã®ã‚’ãƒ‡ãƒãƒƒã‚°è¡¨ç¤º
+      clearBufferCArray(); // ã‚«ãƒ¼ãƒ‰ãƒŠãƒ³ãƒãƒ¼ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢
       Ccount=0;
       RunningMode = 0; // Calc Mode
-      //-----------HX711 Setup@Œv‘ª’¼‘O‚ÉƒZƒbƒgƒAƒbƒv‚µ‚È‚¢‚ÆƒXƒŠ[ƒv‚µ‚½‚Ì‚Å‚±‚±‚ÅƒZƒbƒgƒAƒbƒv    
+      //-----------HX711 Setupã€€è¨ˆæ¸¬ç›´å‰ã«ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã—ãªã„ã¨ã‚¹ãƒªãƒ¼ãƒ—ã—ãŸã®ã§ã“ã“ã§ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—    
       delay(400);
-      scale.set_scale(calibration_factor); // Calibration_factor‚ÍSparkFun_HX711_Calibration ƒXƒPƒbƒ`‚ÅZo‚µ‚Ä‚¨‚­
+      scale.set_scale(calibration_factor); // Calibration_factorã¯SparkFun_HX711_Calibration ã‚¹ã‚±ãƒƒãƒã§ç®—å‡ºã—ã¦ãŠã
       delay(400);
-      scale.set_offset(scale.read_average()); // ©“®•—‘Üˆø‚«
+      scale.set_offset(scale.read_average()); // è‡ªå‹•é¢¨è¢‹å¼•ã
       delay(500);
       timecount = 0;
       Serial.println("ScaleSetup.");
-      ClickBeep(1); // ‚±‚±‚Å‰¹‚ğ–Â‚ç‚µ‚ÄŒv‘ª‰Â”\‚É‚È‚Á‚½‚±‚Æ‚ğ’m‚ç‚¹‚éB
+      ClickBeep(1); // ã“ã“ã§éŸ³ã‚’é³´ã‚‰ã—ã¦è¨ˆæ¸¬å¯èƒ½ã«ãªã£ãŸã“ã¨ã‚’çŸ¥ã‚‰ã›ã‚‹ã€‚
       return;
       //-----------HX711 Setup
     }
@@ -163,35 +163,35 @@ void HX711_Loop()
 {
   String espWriteBuf;
 
-  if(timecount >= 2){ // 10SPSƒ‚[ƒh‚É‚µ‚Ä‚¢‚é‚Ì‚Å–ñ2•bŠÔÃ~o—ˆ‚½‚çŒv‘ªI—¹
-    if(digitalRead(RSTSW) == HIGH){ // ƒŠƒZƒbƒgƒ{ƒ^ƒ“‚ğÀ‘•
+  if(timecount >= 2){ // 10SPSãƒ¢ãƒ¼ãƒ‰ã«ã—ã¦ã„ã‚‹ã®ã§ç´„2ç§’é–“é™æ­¢å‡ºæ¥ãŸã‚‰è¨ˆæ¸¬çµ‚äº†
+    if(digitalRead(RSTSW) == HIGH){ // ãƒªã‚»ãƒƒãƒˆãƒœã‚¿ãƒ³ã‚’å®Ÿè£…
       timecount=0;
       setup();
       return;
     }
-    if(CloudSended){  // ‘—MŒã‚ÍƒŠƒZƒbƒg‚³‚ê‚é‚Ü‚Å‘Ò‹@
+    if(CloudSended){  // é€ä¿¡å¾Œã¯ãƒªã‚»ãƒƒãƒˆã•ã‚Œã‚‹ã¾ã§å¾…æ©Ÿ
       return;
     }else{
-      // nifty Mobile backend ‚Ö‘—M
-      // uid,weihgt ‚ÌŒ`®‚ÅƒVƒŠƒAƒ‹‘—M‚·‚ê‚ÎƒNƒ‰ƒEƒh‚Ö‘—M‚·‚éB
+      // nifty Mobile backend ã¸é€ä¿¡
+      // uid,weihgt ã®å½¢å¼ã§ã‚·ãƒªã‚¢ãƒ«é€ä¿¡ã™ã‚Œã°ã‚¯ãƒ©ã‚¦ãƒ‰ã¸é€ä¿¡ã™ã‚‹ã€‚
       ESPSoftSer.listen();
       CloudSended=1;
-      espWriteBuf=String(CNumL,DEC)+","+String(gravityval); // ‘—M—p®Œ`
+      espWriteBuf=String(CNumL,DEC)+","+String(gravityval); // é€ä¿¡ç”¨æ•´å½¢
       ESPSoftSer.println(espWriteBuf);
       Serial.println("CloudSend!");
       Serial.println(espWriteBuf);
-      ClickBeep(3); // ‚±‚±‚Å‰¹‚ğ–Â‚ç‚µ‚Ä‘—MŠ®—¹‚ğ’m‚ç‚¹‚é
+      ClickBeep(3); // ã“ã“ã§éŸ³ã‚’é³´ã‚‰ã—ã¦é€ä¿¡å®Œäº†ã‚’çŸ¥ã‚‰ã›ã‚‹
       return; // Send Value to Cloud.    
     }
   }
-  // 5‰ñ•½‹Ï’l‚ğg—p‚µ‚Ä‚¢‚é‚ªƒVƒŠƒAƒ‹‚Ì‘¬“x‚ª‰Ò‚°‚ê‚Î10‰ñ‚Å‚à—Ç‚¢
-  // 10SPSƒ‚[ƒh‚È‚Ì‚Åtimecount=1sec
+  // 5å›å¹³å‡å€¤ã‚’ä½¿ç”¨ã—ã¦ã„ã‚‹ãŒã‚·ãƒªã‚¢ãƒ«ã®é€Ÿåº¦ãŒç¨¼ã’ã‚Œã°10å›ã§ã‚‚è‰¯ã„
+  // 10SPSãƒ¢ãƒ¼ãƒ‰ãªã®ã§timecount=1sec
   gravityval = (scale.get_units(10)*2146.66666666666667f)/1000.00f; // 1g = 0.00220462 lbs
-  nval = (int)(gravityval*100.0f);  // Ã~”äŠr—p
-  SevenSegSoftSer.println(gravityval); // 7Segduino‚Ö‘‚«‚İ
+  nval = (int)(gravityval*100.0f);  // é™æ­¢æ¯”è¼ƒç”¨
+  SevenSegSoftSer.println(gravityval); // 7Segduinoã¸æ›¸ãè¾¼ã¿
   Serial.println(gravityval);   // debug print
   if(nval!=0 && bval == nval){
-    timecount++;    // d—Ê‚ªˆÀ’è‚µ‚½‚çƒJƒEƒ“ƒgƒAƒbƒv
+    timecount++;    // é‡é‡ãŒå®‰å®šã—ãŸã‚‰ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—
   }else{
     timecount = 0;
   }
@@ -217,7 +217,7 @@ void clearBufferCArray()                 // function to clear CardNumber buffer 
     }                  
 }
 
-void ClickBeep(int mode)  // ƒ‚[ƒh‚²‚Æ‚É‰¹‚ğ•Ï‚¦‚é
+void ClickBeep(int mode)  // ãƒ¢ãƒ¼ãƒ‰ã”ã¨ã«éŸ³ã‚’å¤‰ãˆã‚‹
 {
   switch(mode){
     case 1:   // CALC
